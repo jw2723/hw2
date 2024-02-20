@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Common Words</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script> <!-- Load D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script> <!-- Load d3-cloud -->
+
+    <style>
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            font-style: bold;
+        }
+        #page-title {
+            text-align: center;
+            font-size: 3.5em; /* This will make the title larger */
+            color: rgb(0, 0, 0); /* Adjust the color to fit your design */
+            margin-bottom: 0.5em; /* Adds some space below the title */
+        }
+        #go-back {
+            display: none; /* Initially hidden */
+            margin: auto; /* Centers the button with some margin */
+        }
+        #word-cloud {
+            height: 777px; /* Set a minimum height for the word cloud container */
+            position: relative; /* Position relative to its normal position */
+        }
+
+        .flag {
+            width: 40px; /* Set the size of the flags */
+            position: absolute;
+            animation: floatRandom 20s infinite ease-in-out; /* Apply the random float animation */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Keyframes for the random float animation */
+        @keyframes floatRandom {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            25% {
+                transform: translate(-20px, 20px);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(20px, -30px);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(-25px, 25px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1 id="page-title" style="text-align:center;">The Most Common Words in Different Languages</h1>
+    <div id="word-cloud">
+        <!-- flag elements -->
+        <img src="flags/china.png" class="flag" style="top: 15px; left: 115px;">
+        <img src="flags/uk.png" class="flag" style="top: 155px; left: 30px;">
+        <img src="flags/usa.png" class="flag" style="top: 555px; left: 35px;">
+        <img src="flags/japan.png" class="flag" style="top: 155px; left: 1150px;">
+        <img src="flags/norway.png" class="flag" style="top: 385px; left: 135px;">
+        <img src="flags/italy.png" class="flag" style="top: 575px; left: 1185px;">
+        <img src="flags/france.png" class="flag" style="top: 15px; left: 1200px;">
+        <img src="flags/russia.png" class="flag" style="top: 350px; left: 1300px;">
+    </div>
+    <button id="go-back" style="display:none;" onclick="createInitialLayout()">Go Back</button>
+    <script src="script.js"></script>
+</body>
+</html>
