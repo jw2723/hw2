@@ -78,7 +78,7 @@ function drawInitial(words) {
              .text(d => d.text)
 
              // events
-             .on('mouseover', function (d) { // highlight in blc when mouse hover
+             .on('mouseover', function (d) { // highlight in blk when mouse hover
                  d3.select(this).style('fill', 'black');
              })
              .on('mouseout', function (d) {
