@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Common Words</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script> <!-- Load D3.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script> <!-- Load d3-cloud -->
+    <script src="https://d3js.org/d3.v6.min.js"></script> <!-- load D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script> <!-- load d3-cloud -->
 
     <style>
         body {
@@ -12,50 +12,43 @@
         }
         #page-title {
             text-align: center;
-            font-size: 3.5em; /* This will make the title larger */
-            color: rgb(0, 0, 0); /* Adjust the color to fit your design */
-            margin-bottom: 0.5em; /* Adds some space below the title */
+            font-size: 3.5em;
+            color: rgb(0, 0, 0);
+            margin-bottom: 0.5em; /* space below title */
         }
-        #go-back {
-            display: none; /* Initially hidden */
-            margin: auto; /* Centers the button with some margin */
+        #go-back { /* button for word cloud page */
+            display: none; /* initially hidden */
+            margin: auto; /* center the button */
         }
         #word-cloud {
-            height: 777px; /* Set a minimum height for the word cloud container */
-            position: relative; /* Position relative to its normal position */
+            height: 777px; /* min height for word cloud container */
+            position: relative;
         }
 
-        .flag {
-            width: 40px; /* Set the size of the flags */
+        .flag { /* styling for flags */
+            width: 40px; /* size of floating flags */
             position: absolute;
-            animation: floatRandom 20s infinite ease-in-out; /* Apply the random float animation */
+            animation: floatRandom 20s infinite ease-in-out; /* random floating animation */
         }
 
+        /* class to hide flag after entering word cloud page */
         .hidden {
             display: none;
         }
 
-        /* Keyframes for the random float animation */
+        /* keyframes for random floating flags animation */
         @keyframes floatRandom {
-            0% {
-                transform: translate(0, 0);
+            0%, 100% {
+                transform: translate(0, 0); /* start and end at original position */
                 opacity: 1;
             }
-            25% {
-                transform: translate(-20px, 20px);
+            25%, 75% {
+                transform: translate(-20px, 20px); /* move diagonally */
                 opacity: 0.8;
             }
             50% {
-                transform: translate(20px, -30px);
-                opacity: 0.6;
-            }
-            75% {
-                transform: translate(-25px, 25px);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translate(0, 0);
-                opacity: 1;
+                transform: translate(20px, -30px); /* move in opposite direction */
+                opacity: 0.5; /* become more transparent */
             }
         }
 
@@ -75,7 +68,11 @@
         <img src="flags/france.png" class="flag" style="top: 15px; left: 1200px;">
         <img src="flags/russia.png" class="flag" style="top: 350px; left: 1300px;">
     </div>
+
+    <!-- 'Go Back' button, shown only when needed -->
     <button id="go-back" style="display:none;" onclick="createInitialLayout()">Go Back</button>
+    
+    <!-- link to js file -->
     <script src="script.js"></script>
 </body>
 </html>
